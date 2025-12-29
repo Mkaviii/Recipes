@@ -1,28 +1,20 @@
 
 
-const mongoose =require('mongoose');
+const mongoose = require('mongoose');
 const app = require('./app');
-
 require('dotenv').config();
 
+const PORT = process.env.PORT || 3001;
 
-// listen for incomeing requests(start the server)
-app.listen(3001, 'localhost', () => {
-  console.log('Server is running on http://localhost:3001');
-});
-
-//connected to mongoose
+// Connect to MongoDB first
 mongoose
-    .connect(process.env.MONGODB_URI)
-    .then(()=>{
-        console.log('Connected to MongoDB')
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log('Connected to MongoDB');
 
-        // listen for incomeing requests(start the server)
-app.listen(3001, 'localhost', () => {
-  console.log('Server is running on http://localhost:3001');
-});
-
-    })
-    .catch((err)=>console.error('could not connect to MongoDB',err));
-
-
+    // Start server after DB connection
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`Server is running on http://0.0.0.0:${PORT}`);
+    });
+  })
+  .catch((err) => console.error('Could not connect to MongoDB', err));
