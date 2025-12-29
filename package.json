@@ -1,0 +1,20 @@
+{
+  "name": "recipes",
+  "version": "1.0.0",
+  "description": "recipes application is a simple food recipes information",
+  "keywords": [
+    "Different",
+    "Recipes"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git remote add origin https://github.com/Mkaviii/Recipes.git"
+  },
+  "license": "ISC",
+  "author": "kavitha M",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
