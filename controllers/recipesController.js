@@ -3,6 +3,7 @@ const Recipes = require('../models/Recipes');
 /* CREATE */
 const createRecipes = async (req, res) => {
   try {
+    console.log(req.body);
     const recipe = new Recipes(req.body);
     const savedRecipe = await recipe.save();
 
