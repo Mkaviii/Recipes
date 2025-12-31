@@ -13,7 +13,7 @@ mongoose
     console.log('Connected to MongoDB');
 
     // Start server after DB connection
-    app.listen(PORT, 'localhost', () => {
+    app.listen(PORT, '0.0.0.0', () => {
       console.log(`Server is running on http://localhost:${PORT}`);
     });
   })
