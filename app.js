@@ -1,12 +1,20 @@
-//import express module
-const express= require('express');
-const recipesRouter = require('./routes/recipesRoutes');
+const express = require('express');
+const recipeRoutes = require('./routes/recipeRoutes');
 
-//create an express application
-const app =express();
+const app = express();
 
 app.use(express.json());
 
-app.use('/recipes',recipesRouter);
+// Health check
+app.get('/', (req, res) => {
+  res.send('Recipes API is running ');
+});
 
-module.exports=app;
+app.use('/recipes', recipeRoutes);
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ message: 'Route not found' });
+});
+
+module.exports = app;
